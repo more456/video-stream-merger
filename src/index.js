@@ -254,10 +254,10 @@ VideoStreamMerger.prototype.updateStream = function (mediaStream,opts) {
 
   for (var i = 0; i < self._streams.length; i++) {
     if (mediaStream.id === self._streams[i].id) {
-        stream.x = opts.x || 0
-        stream.y = opts.y || 0
-        stream.width = opts.width || self.width
-        stream.height = opts.height || self.height
+        self._streams[i].x = opts.x || 0
+        self._streams[i].y = opts.y || 0
+        self._streams[i].width = opts.width || self.width
+        self._streams[i].height = opts.height || self.height
       break
     }
   }
