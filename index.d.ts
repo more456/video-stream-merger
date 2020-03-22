@@ -57,6 +57,11 @@ declare class VideoStreamMerger {
    */
   removeStream(stream: MediaStream | string): void;
 
+   /**
+   * Update a MediaStream in the merging. 
+   */
+  updateStream(stream: MediaStream | string,options?: Partial<VideoStreamMerger.UpdateStreamOptions>): void;
+
   /**
    * Start the merging and create merger.result.
    * You can call this any time, but you only need to call it once.
