@@ -243,6 +243,26 @@ VideoStreamMerger.prototype.removeStream = function (mediaStream) {
   }
 }
 
+VideoStreamMerger.prototype.updateStream = function (mediaStream,opts) {
+  var self = this
+
+  if (typeof mediaStream === 'string') {
+    mediaStream = {
+      id: mediaStream
+    }
+  }
+
+  for (var i = 0; i < self._streams.length; i++) {
+    if (mediaStream.id === self._streams[i].id) {
+        stream.x = opts.x || 0
+        stream.y = opts.y || 0
+        stream.width = opts.width || self.width
+        stream.height = opts.height || self.height
+      break
+    }
+  }
+}
+
 VideoStreamMerger.prototype._addData = function (key, opts) {
   var self = this
 
