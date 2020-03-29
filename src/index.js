@@ -306,7 +306,7 @@ VideoStreamMerger.prototype._requestAnimationFrame = function (callback) {
   })
 }
 
-VideoStreamMerger.prototype.start = function (streamName) {
+VideoStreamMerger.prototype.start = function (_streamName) {
   var self = this
 
   self.started = true
@@ -314,7 +314,8 @@ VideoStreamMerger.prototype.start = function (streamName) {
 
   // Add video
   self.result = self._canvas.captureStream(self.fps)
-  self.result.streamName=streamName;
+  self.result.streamName=_streamName;
+  console.log("318::insidelib::",_streamName);
   // Remove "dead" audio track
   var deadTrack = self.result.getAudioTracks()[0]
   if (deadTrack) self.result.removeTrack(deadTrack)
