@@ -306,7 +306,7 @@ VideoStreamMerger.prototype._requestAnimationFrame = function (callback) {
   })
 }
 
-VideoStreamMerger.prototype.start = function () {
+VideoStreamMerger.prototype.start = function (streamName) {
   var self = this
 
   self.started = true
@@ -314,7 +314,7 @@ VideoStreamMerger.prototype.start = function () {
 
   // Add video
   self.result = self._canvas.captureStream(self.fps)
-
+  self.result.streamName=streamName;
   // Remove "dead" audio track
   var deadTrack = self.result.getAudioTracks()[0]
   if (deadTrack) self.result.removeTrack(deadTrack)
